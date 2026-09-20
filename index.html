@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emma Anderson - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --primary-light: #2563eb;
+      --primary-subtle: #eff6ff;
+      --accent: #0284c7;
+      --text-dark: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.82);
+      --tag-bg: #e0f2fe;
+      --tag-text: #0369a1;
+      --success-bg: #ecfdf5;
+      --success-text: #065f46;
+      --page-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafd 35%, #edf4fa 70%, #e5eef7 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-body);
+      background-color: #f1f5f9;
+      line-height: 1.45;
+      font-size: 9.5pt;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    /* Page container setup for single 8.5x11 page */
+    .page-container {
+      width: 8.5in;
+      height: 11in;
+      margin: 20px auto;
+      background: var(--page-gradient);
+      padding: 0.45in 0.5in;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    /* Header Styling */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 6px;
+    }
+
+    .name-title h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24pt;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .name-title .target-role {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+
+    .contact-info {
+      text-align: right;
+      font-size: 8.8pt;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .headshot-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    .contact-info a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--success-bg);
+      color: var(--success-text);
+      font-weight: 600;
+      font-size: 8.2pt;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #a7f3d0;
+      margin-top: 4px;
+    }
+
+    .availability-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Main 2-Column Layout */
+    .resume-body {
+      display: grid;
+      grid-template-columns: 1fr 2.3fr;
+      gap: 18px;
+      flex-grow: 1;
+    }
+
+    /* Sidebar Column */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-right: 1px solid var(--border-color);
+      padding-right: 14px;
+    }
+
+    /* Content Column */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    /* Section Styling */
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--primary);
+      border-bottom: 1.5px solid var(--border-color);
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Summary Card */
+    .summary-text {
+      font-size: 9pt;
+      line-height: 1.42;
+      color: var(--text-body);
+      text-align: justify;
+    }
+
+    /* Experience Items */
+    .job-card {
+      margin-bottom: 9px;
+    }
+
+    .job-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 9.6pt;
+      color: var(--text-dark);
+    }
+
+    .company-name {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 9pt;
+    }
+
+    .job-meta {
+      font-size: 8.2pt;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .job-bullets {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 3px;
+    }
+
+    .job-bullets li {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 3px;
+      font-size: 8.8pt;
+      line-height: 1.35;
+      color: var(--text-body);
+    }
+
+    .job-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 10pt;
+    }
+
+    .job-bullets li strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* Skill Badges & Lists */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-dark);
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-size: 7.8pt;
+      font-weight: 500;
+    }
+
+    .skill-pill.featured {
+      background: var(--tag-bg);
+      border-color: #bae6fd;
+      color: var(--tag-text);
+      font-weight: 600;
+    }
+
+    /* Certifications */
+    .cert-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid #10b981;
+      padding: 5px 8px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 5px;
+    }
+
+    .cert-name {
+      font-weight: 700;
+      font-size: 8.5pt;
+      color: var(--text-dark);
+    }
+
+    .cert-meta {
+      font-size: 7.8pt;
+      color: var(--text-muted);
+    }
+
+    /* Education */
+    .edu-item {
+      margin-bottom: 4px;
+    }
+
+    .edu-degree {
+      font-weight: 700;
+      font-size: 8.6pt;
+      color: var(--text-dark);
+    }
+
+    .edu-school {
+      font-size: 8.2pt;
+      color: var(--text-muted);
+    }
+
+    /* Languages Grid */
+    .lang-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 6px;
+      font-size: 8pt;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      padding: 2px 5px;
+      border-radius: 3px;
+      border: 1px solid var(--border-color);
+    }
+
+    .lang-name {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .lang-level {
+      font-size: 7.2pt;
+      color: var(--text-muted);
+    }
+
+    /* Action bar for user */
+    .print-controls {
+      max-width: 8.5in;
+      margin: 15px auto 5px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .print-btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 9pt;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .print-btn:hover {
+      background: #1d4ed8;
+    }
+
+    /* Footer Decal Line */
+    footer {
+      margin-top: auto;
+      padding-top: 14px;
+      line-height: 0;
+      position: relative;
+    }
+
+    .footer-decal-svg {
+      width: 100%;
+      height: 2px;
+      display: block;
+    }
+
+    /* Print Specific Media Query */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      html, body {
+        background: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 8.5in !important;
+        height: 11in !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      .print-controls {
+        display: none !important;
+      }
+
+      .page-container {
+        width: 8.5in !important;
+        height: 11in !important;
+        margin: 0 !important;
+        padding: 0.45in 0.5in !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafd 35%, #edf4fa 70%, #e5eef7 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="print-controls">
+    <div>
+      <strong>✨ Emma Anderson – Optimized 1-Page Resume</strong>
+      <span style="opacity: 0.75; font-size: 8.5pt; margin-left: 10px;">Tailored for Retail Cashier / Floor & Food
+        Service Roles</span>
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
+        </path>
+      </svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="page-container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <div class="name-title">
+          <div class="availability-badge">
+            Working availability: 6:00 AM – 9:00 PM, Mon-Sun
+          </div>
+          <br><br>
+          <h1>Emma Anderson</h1>
+          <div class="target-role">Warehouse Operations • Retail Customer Service</div>
+        </div>
+        <div class="contact-info">
+          <img src="headshot-cool.jpg" alt="Emma Anderson" class="headshot-img">
+          <div><strong>(206) 393-2483</strong> <br> <a href="mailto:work@draumaz.xyz">work@draumaz.xyz</a></div>
+          <div>Capitol Hill, Seattle, WA &bull; 98102</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2-Column Body -->
+    <div class="resume-body">
+
+      <!-- LEFT SIDEBAR: Skills, Certs, Education, Languages -->
+      <aside class="sidebar">
+        <!-- Key Skills -->
+        <section>
+          <div class="section-title">Core Competencies</div>
+          <div class="skills-grid">
+            <span class="skill-pill featured">POS / Cash Register</span>
+            <span class="skill-pill featured">Cash Accuracy</span>
+            <span class="skill-pill featured">Customer Engagement</span>
+            <span class="skill-pill">Food Prep & Barista</span>
+            <span class="skill-pill">Food Safety Standards</span>
+            <span class="skill-pill">Inventory & Facing</span>
+            <span class="skill-pill">Merchandising & Resets</span>
+            <span class="skill-pill">Order Picking & RF Scan</span>
+            <span class="skill-pill">FedEx Shipping Logistics</span>
+            <span class="skill-pill">Photo & Print Specialist</span>
+            <span class="skill-pill">Speed of Service</span>
+            <span class="skill-pill">De-escalation & Returns</span>
+          </div>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+          <div class="section-title">Certifications</div>
+          <div class="cert-item">
+            <div class="cert-name">Food Handler Certification</div>
+            <div class="cert-meta">State of WA &bull; Exp: Oct 2027 (Active)</div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+          <div class="section-title">Education</div>
+          <div class="edu-item">
+            <div class="edu-degree">High School Diploma</div>
+            <div class="edu-school">Sumner High School &bull; Sumner, WA</div>
+            <div class="cert-meta">Graduated: June 2018</div>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+          <div class="section-title">Languages</div>
+          <div class="lang-list">
+            <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">Native</span></div>
+            <div class="lang-item"><span class="lang-name">Dutch</span><span class="lang-level">Fluent</span></div>
+            <div class="lang-item"><span class="lang-name">Esperanto</span><span class="lang-level">Fluent</span></div>
+            <div class="lang-item"><span class="lang-name">French</span><span class="lang-level">Good</span></div>
+            <div class="lang-item"><span class="lang-name">German</span><span class="lang-level">Good</span></div>
+            <div class="lang-item"><span class="lang-name">Russian</span><span class="lang-level">Good</span></div>
+            <div class="lang-item"><span class="lang-name">Finnish</span><span class="lang-level">Basic</span></div>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- RIGHT MAIN COLUMN: Summary & Experience -->
+      <main class="main-content">
+
+        <!-- Summary -->
+        <section>
+          <div class="section-title">Professional Profile</div>
+          <p class="summary-text">
+            Energetic, detail-oriented associate with <strong>6+ years of proven experience</strong> in warehouse order
+            fulfillment, inventory tracking, and high-volume retail customer service. Skilled in accurate order picking,
+            regulatory compliance, rapid POS throughput, and dependable logistics support.
+          </p>
+        </section>
+
+        <!-- Experience -->
+        <section>
+          <div class="section-title">Professional Experience</div>
+
+          <!-- Mfused -->
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Warehouse/Order Picker</span> &bull;
+                <span class="company-name">Mfused</span>
+              </div>
+              <div class="job-meta">Aug 2026 - Present &bull; Seattle, WA</div>
+            </div>
+            <ul class="job-bullets">
+              <li>Receive, inspect, and properly store cannabis products and packaging materials</li>
+              <li>Utilize Cultivera and ZebraDesigner software to accurately count and track inventory, ensuring compliance with internal and federal regulatory standards</li>
+              <li>Prepare and package orders for distribution to dispensaries or other clients</li>
+              <li>Assist with shipping, receiving, and logistical operations</li>
+            </ul>
+          </div>
+
+          <!-- Walgreens -->
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Customer Service Representative</span> &bull;
+                <span class="company-name">Walgreens</span>
+              </div>
+              <div class="job-meta">Jan 2024 – Jul 2026 &bull; Seattle, WA</div>
+            </div>
+            <ul class="job-bullets">
+              <li>Operate high-speed POS terminals for cash, card, and NFC transactions</li>
+              <li>Manage FedEx OnSite shipping logistics, package intake, and tracking</li>
+              <li>Operate photo lab equipment for custom print production and passport biometric compliance</li>
+              <li>Execute planogram resets, inventory replenishment, and protection protocols for secured merchandise</li>
+            </ul>
+          </div>
+
+          <!-- Safeway -->
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Cashier</span> &bull;
+                <span class="company-name">Safeway</span>
+              </div>
+              <div class="job-meta">Sep 2022 – Jan 2024 &bull; Seattle, WA</div>
+            </div>
+            <ul class="job-bullets">
+              <li>Process high-volume grocery transactions and memorized PLU codes</li>
+              <li>Manage accurate cash handling, till reconciliation, and tender verification</li>
+              <li>Promote Safeway for U digital rewards programs and weekly promotional offerings to customers</li>
+              <li>Maintain front-end checkout lanes, bagging speed, and aisle product facing</li>
+            </ul>
+          </div>
+
+          <!-- Amazon -->
+          <div class="job-card">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Order Picker</span> &bull;
+                <span class="company-name">Amazon</span>
+              </div>
+              <div class="job-meta">Dec 2021 – Sep 2022 &bull; Renton, WA</div>
+            </div>
+            <ul class="job-bullets">
+              <li>Utilize handheld RF scanners and warehouse management systems to meet and exceed hourly pick rates</li>
+              <li>Perform inventory cycle counts, audit bin locations, and resolve scanning discrepancies</li>
+              <li>Stage, pack, and prepare orders for cross-dock transfer and time-sensitive outbound dispatch</li>
+              <li>Maintain strict compliance with safety standards and operating procedures</li>
+            </ul>
+          </div>
+
+
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Footer Decal -->
+    <footer>
+      <svg class="footer-decal-svg" width="100%" height="2" viewBox="0 0 1000 2" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="1000" height="2" fill="#1e3a5f" />
+        <rect x="0" y="0" width="95" height="2" fill="#0284c7" />
+        <rect x="105" y="0" width="22" height="2" fill="#2563eb" />
+      </svg>
+    </footer>
+  </div>
+
+</body>
+
+</html>
